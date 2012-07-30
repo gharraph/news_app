@@ -1,14 +1,6 @@
 HnClone::Application.routes.draw do
-  get "votes/create"
-
-  get "votes/edit"
-
-  get "votes/new"
-
-  get "votes/delete"
-
-  get "votes/update"
-
+  resources :votes
+  resources :comments
   devise_for :users
 
   match '/submit' => 'links#new'

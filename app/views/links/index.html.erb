@@ -6,13 +6,14 @@
 
     <tr>
       <td>
-        <%= render :partial => "vote_button", :locals => {:link => link} %>
+        <%= link_to link.title,  link.url %></br>
+		<span class="sub_link">(comments count) comments | (vote count) votes</span>
       </td>
       <td>
-        <%= link_to link.title,  link.url %>
-      </td>
-      <td>
-          <%= render :partial => "edit_button", :locals => {:link => link} %>
+         <%= render :partial => "edit_button", :locals => {:link => link} %>
+         <%= render :partial => "vote_button", :locals => {:link => link} %>
+         <%= render :partial => "comment_button", :locals => {:link => link}%>
+
       </td>
     </tr>
 <%end%>

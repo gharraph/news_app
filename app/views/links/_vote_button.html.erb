@@ -1,8 +1,10 @@
 <% if user_signed_in?%>
-<% if link.can_be_voted_on_by?(current_user)%>
-    <a href=<%= votes_create_path(:link_id => link.id) %>><i class="icon-thumbs-up"></i></a>
-     <%else%>
-        <i class="icon-thumbs-up"></i>
+	<% if link.can_be_voted_on_by?(current_user)%>
+    	<%= link_to votes_path(:link_id => link.id), html_options = :method => :post do %>
+			<i class="icon-arrow-up"></i></a>
+		<%end%>
+    <%else%>
+       <i class="icon-arrow-up"></i>
   <% end %>
   <% end %>
 

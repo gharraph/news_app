@@ -1,3 +1,7 @@
 <% if user_signed_in? && current_user.id == link.user_id %>
-  <i class="icon-edit"></i><%= link_to "edit", "/links/#{link.id}/edit" %>
+	<%=link_to edit_link_path(link.id) do%>
+		<i class="icon-edit"></i>
+	<%end%>
+<%else%>
+	<i class="icon-edit"></i>
 <%end%>
