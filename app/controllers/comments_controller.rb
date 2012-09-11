@@ -21,6 +21,13 @@ class CommentsController < ApplicationController
   def create
     @link = Link.find params[:link_id]
     @comment = @link.comments.create(params[:comment])
-    redirect_to root_path
+    respond_to do |format|
+      if @comment.save
+        format.js
+      else
+        flash[:error] = "Comment did not save!"
+        render 'new'
+      end
+    end
   end
 end
