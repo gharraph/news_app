@@ -1,10 +1,7 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
-    puts "T" * 50
-    p params
-    #find link by format as I could not pass id as a key in the params hash
-    @link = Link.find params[:format]
+    @link = Link.find params[:link_id]
   end
   
   def edit

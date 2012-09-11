@@ -1,10 +1,11 @@
 HnClone::Application.routes.draw do
   resources :votes
-  resources :comments
   devise_for :users
 
   match '/submit' => 'links#new'
-  resources :links
+  resources :links do
+    resources :comments
+  end
 
   root :to => "links#index"
 
