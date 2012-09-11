@@ -3,6 +3,12 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @link = Link.find params[:link_id]
   end
+
+  def index
+    @link = Link.find(params[:link_id])
+    @comments = @link.comments.order("created_at ASC")
+    
+  end
   
   def edit
     
@@ -13,8 +19,8 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = Comment.create(:user_id => params[:comment][:user_id], 
-    :link_id => params[:comment][:link_id], :body => params[:comment][:body])
+    @link = Link.find params[:link_id]
+    @comment = @link.comments.create(params[:comment])
     redirect_to root_path
   end
 end

@@ -5,6 +5,7 @@ class Link < ActiveRecord::Base
   validates :url, :uniqueness => true
   belongs_to :user
   has_many :votes
+  has_many :comments
   before_save :http_validation
 
   def strip_white_spaces

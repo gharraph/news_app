@@ -7,7 +7,9 @@
     <tr>
       <td>
         <%= link_to link.title,  link.url %></br>
-		<span class="sub_link">(comments count) comments | (vote count) votes</span>
+		<span class="sub_link">
+       <%=link_to "#{link.comments.count}  comments", link_comments_path(link.id) %> | (vote count) votes
+    </span>
       </td>
       <td>
          <%= render :partial => "edit_button", :locals => {:link => link} %>

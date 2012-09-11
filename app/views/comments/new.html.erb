@@ -1,11 +1,2 @@
 Please comment on: <%=@link.title%>
-<%= form_for [@link, @comment] do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id  %>
-  <p class="text_area">
-    <%= f.label :body, "Comment	"  %>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit "Submit" %>
-  </p>
-<%end%>
+<%= render :partial => 'form', :locals => {:link => @link} %>

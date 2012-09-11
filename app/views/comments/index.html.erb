@@ -1,0 +1,7 @@
+<h1>Comments</h1>
+<% @comment = Comment.new %>
+<%= render :partial => 'form', :locals => {:link => @link} %>
+
+<% @comments.each do |comment| %>
+	<%= comment.body %></br>
+<% end %>
