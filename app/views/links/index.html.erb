@@ -8,7 +8,7 @@
       <td>
         <%= link_to link.body,  link.url %></br>
 		<span class="sub_link">
-       <%=link_to "#{link.comments.count}  comments", link_comments_path(link.id) %> | (vote count) votes
+       <%=link_to "#{link.comments.count}  comments", link_comments_path(link.id) %> |  <%= link.votes.count %> votes
     </span>
       </td>
       <td>
