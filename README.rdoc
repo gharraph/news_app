@@ -1,5 +1,4 @@
 == Welcome to News_app
 This App is made by Sherief Gharraph and Asad Akbar. It is a hacker news clone made for the purpose of training on RESTful routes and MVC.
 
-== Still in progress
-I will still need to polish it to be able to view links information such as link owner, vote counts and Karma.
+
