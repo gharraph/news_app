@@ -11,22 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120729222734) do
+ActiveRecord::Schema.define(:version => 20120912023436) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "link_id"
+    t.integer  "commentable_id"
     t.string   "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "commentable_type"
   end
+
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
 
   create_table "links", :force => true do |t|
     t.string   "url"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "body"
     t.integer  "vote_total", :default => 0
   end
 
