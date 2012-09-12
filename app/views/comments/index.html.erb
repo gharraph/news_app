@@ -1,8 +1,23 @@
-<h1>Comments</h1>
+<h1>Comments on: <%=@parent.body%></h1>
 <% @comment = Comment.new %>
-<%= render :partial => 'form', :locals => {:link => @link} %>
+<%= render :partial => 'form', :locals => { :parent => @parent, :remote => true } %>
 <ul class="comment-list">
 <% @comments.each do |comment| %>
-	<li><%= comment.body %></li>
+	<li class="comment">
+
+<div class="body">
+    <%= comment.body %>
+ </div>
+
+<span class="sub_comment">
+       <%=link_to "reply", new_comment_comment_path(comment) %> 
+</span>
+
+<% unless comment.comments.empty? %>
+    <ul class="comment_list">
+      <%= render :partial => 'comments/comment', :collection => comment.comments %>
+    </ul>
+<% end %>
+</li>
 <% end %>
 </ul>

@@ -1,2 +1,2 @@
-Please comment on: <%=@link.title%>
-<%= render :partial => 'form', :locals => {:link => @link} %>
+<h1>Please comment on: <%=@parent.body%> </h1>
+<%= render :partial => 'form', :locals => { :parent => @parent, :remote => false } %>

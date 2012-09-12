@@ -3,6 +3,11 @@ HnClone::Application.routes.draw do
   devise_for :users
 
   match '/submit' => 'links#new'
+
+resources :comments do
+  resources :comments
+end
+
   resources :links do
     resources :comments
   end
